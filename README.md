@@ -15,6 +15,6 @@ Tyrone Bot is powered by the discord.py library as well as https://uptimerobot.c
 
 **Note: It is worth noting that this discord bot is far from perfect and was actually one of the first bots I created. Therefore, the code may be pretty wacky. I would greatly appreciate any help!**
 
-*Produced By: Larry Le*
+*Produced By: Tyrone#1455*
 
 https://discord.com/api/oauth2/authorize?client_id=886114841968914445&permissions=494656&scope=bot
