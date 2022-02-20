@@ -5,9 +5,12 @@ from dotenv import load_dotenv
 import os
 load_dotenv()
 
-# Grab the discord library
+# Grab the discord library & keep the bot on
 import discord
 discordToken = os.getenv("discordToken")
+
+from KeepAlive import keep_alive
+bot = discord.Client()
 
 # Datastore for discord messages :O
 import pymongo
@@ -20,34 +23,32 @@ collection = database["messages"]
 
 # Functions ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# MainSetup ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+@bot.event
+async def on_ready():
+  await bot.change_presence(activity = discord.Activity(type = discord.ActivityType.watching, name = "your data LMAO"))
+  print(f" {bot.user} is Working")
 
+@bot.event
+async def on_message(message):
+  
+  if message.author == bot.user:
+    return
 
+  elif message.content.lower() == "working":
+    await message.channel.send("I finally work")
 
+  else:
 
+    messageId = collection.count_documents({})
+    post = {"_id": messageId + 1,"Discord Server": message.author.guild.name,"Discord Author": message.author.name, "Message Sent": message.content}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+    # Stores all messages across all servers the bot is in
+    collection.insert_one(post)
 
 # INSERTING DATA ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # AKA bullet point list under collection under database
-post = {"_id": 1, "test": "dab"}
-post2 = {"_id": 2, "test": "dab"}
-post3 = {"_id": 13, "test": "hello World!"}
-
-#collection.insert_many([post, post2, post3])
+# collection.insert_one(post)
 
 # ANALYSIS OF DATA ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -58,11 +59,15 @@ for result in output:
   print(result["_id"])
 '''
 
-countTotal = collection.count_documents({"test": "dab"})
-print(countTotal)
+#countTotal = collection.count_documents({"test": "dab"})
+#print(countTotal)
 
 # DELETION OF DATA ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 #target = collection.delete_one({"_id":1})
+#target2 = collection.delete_many({})
 
-#target2 = collection.delete_many({"test": "dab"})
+# MainSetup ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+keep_alive()
+bot.run(discordToken)
