@@ -13,7 +13,7 @@ Tyrone Bot is powered by the discord.py library as well as https://uptimerobot.c
 - Yoo: This runs everytime someone says yoo and responds with a "yoo what's good"
 - Merry: Merry Christmas 
 
-**Note: It is worth noting that like bascially everything nowadays, it records your message data across all the servers you invite it into. So yeah..**
+**Note: It is worth noting that like bascially everything nowadays, it records your message data across all the servers you invite it into.**
 
 *Produced By: Tyrone#1455*
 
