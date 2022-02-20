@@ -1,93 +1,68 @@
-# Variables ---------------------------------------------------------------------------------------------
+# Variables ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-import discord 
-Bot = discord.Client()
-
+# Environment variable to hide API tokens!!
+from dotenv import load_dotenv
 import os
-Token_Key = os.environ["Token"]
+load_dotenv()
 
-import time
-import asyncio
-from KeepAlive import keep_alive
+# Grab the discord library
+import discord
+discordToken = os.getenv("discordToken")
 
-# Bot Events --------------------------------------------------------------------------------------------
+# Datastore for discord messages :O
+import pymongo
+from pymongo import MongoClient
+mongoToken = os.getenv("mongoToken")
 
-@Bot.event
-async def on_ready():
-  print("{0} has turned on!".format(Bot.user))
-  await Bot.change_presence(activity = discord.Game("all alone {0}".format("🥺")))
+cluster = MongoClient(f"mongodb+srv://Tyrone:{mongoToken}@cluster0.abmnh.mongodb.net/discord?retryWrites=true&w=majority")
+database = cluster["discord"]
+collection = database["messages"]
 
-@Bot.event
-async def on_message(message):
-  userMsg = message.content.lower()
-  user = message.author
-  channel = message.channel
+# Functions ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-  if user == Bot.user:
-    return 
-
-# HELP COMMANDS -----------------------------------------------------------------------------------------
-  elif "help me tyrone" in userMsg:
-    await channel.send(f"Thanks for using me, Tyrone 2.0, <@{user.id}>")
-    await asyncio.sleep(1)
-    await channel.send("Some commands include but are not limited to: **PRANK, TOMFOOLERY, YOO, PPCOUNT**")
-    await asyncio.sleep(1)
-    await channel.send("Give Larry some ideas to make pls. More information can be found on https://github.com/Larrieeee/Tyrone-Bot")
-    
-# TOMFOOLERY --------------------------------------------------------------------------------------------
-  elif "prank" in userMsg:
-    for LMAO in range(1,10000):
-      await user.send("**You have been trolled {0} times <@{1}>!** <:WHY:827390243920412672>".format(LMAO, user.id))
-      await asyncio.sleep(1)
-# PISSOFF -----------------------------------------------------------------------------------------------
-  elif "tomfoolery" in userMsg:
-    await channel.send("Who do you want me to ping >:)")
-
-    PersonPinging = await Bot.wait_for("Message")
-
-    if PersonPinging.content.startswith("<@"):
-      for Maximum in range(25):
-        await channel.send("We do a little tomfoolery {0} :)".format(PersonPinging.content))
-        await asyncio.sleep(1)
-      
-    else: 
-      await channel.send("You're supposed to ping someone smh {0}".format(":unamused:"))
-
-# PPCOUNT -----------------------------------------------------------------------------------------------
-  
-  elif "ppcount" in userMsg:
-    print("\nI'm counting! and started at {0}".format(time.ctime()))
-
-    for PenisCount in range(20000):    
-      PENIS = [
-    ":regional_indicator_p:", 
-      ":regional_indicator_e:", 
-      ":regional_indicator_n:", 
-      ":regional_indicator_i:", 
-      ":regional_indicator_s:"]
-              
-      await asyncio.sleep(1)
-      await channel.send("**{0}** {1} {2} {3} {4} {5} **!**".format(str(PenisCount), PENIS[0], PENIS[1], PENIS[2], PENIS[3], PENIS[4]))
-
-# CONTROLME ---------------------------------------------------------------------------------------------
-  elif "controlme" in userMsg:
-    
-    while True:
-      botResponse = input("\nWhat would you like me to say?\n")
-      await channel.send(botResponse)
-# YOO ----------------------------------------------------------------------------------------------------
-  elif userMsg.startswith("yoo"):
-    await channel.send("YOOOOOOOOOOO WHATS GOOD <@{0}>".format(message.author.id))
-    await asyncio.sleep(1)
-    await channel.send("YOOOOOOOOOOO <@{0}>".format("394888049483579395"))
-# DM TYLER ----------------------------------------------------------------------------------------------
-  elif message.content.lower().startswith("merry"):
-    for i in range(1,10):
-      await channel.send("Merry Christmas yall😱🥳🥳")
-      await asyncio.sleep(1)
-      await channel.send("Merry Christmas <@{0}>😱🥳🥳".format("521015407407267850"))
-# Jackson wants 50 penises -------------------------------------------------------------------------------
+# MainSetup ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-keep_alive()
-Bot.run(Token_Key)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# INSERTING DATA ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# AKA bullet point list under collection under database
+post = {"_id": 1, "test": "dab"}
+post2 = {"_id": 2, "test": "dab"}
+post3 = {"_id": 13, "test": "hello World!"}
+
+#collection.insert_many([post, post2, post3])
+
+# ANALYSIS OF DATA ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+'''
+output = collection.find({"test": "dab"})
+
+for result in output:
+  print(result["_id"])
+'''
+
+countTotal = collection.count_documents({"test": "dab"})
+print(countTotal)
+
+# DELETION OF DATA ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+#target = collection.delete_one({"_id":1})
+
+#target2 = collection.delete_many({"test": "dab"})
