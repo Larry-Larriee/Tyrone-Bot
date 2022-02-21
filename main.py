@@ -40,7 +40,7 @@ async def on_message(message):
   else:
 
     messageId = collection.count_documents({})
-    post = {"_id": messageId + 1,"Discord Server": message.author.guild.name,"Discord Author": message.author.name, "Message Sent": message.content}
+    post = {"_id": messageId + 1,"Discord Server": message.author.guild.name, "Channel": message.channel.name, "Discord Author": message.author.name, "Message Sent": message.content}
 
     # Stores all messages across all servers the bot is in
     collection.insert_one(post)
@@ -57,6 +57,7 @@ output = collection.find({"test": "dab"})
 
 for result in output:
   print(result["_id"])
+  
 '''
 
 #countTotal = collection.count_documents({"test": "dab"})
@@ -66,6 +67,14 @@ for result in output:
 
 #target = collection.delete_one({"_id":1})
 #target2 = collection.delete_many({})
+
+# Mass Purge Data
+'''
+
+for i in range(0,42):
+  target = collection.delete_one({"_id": (i+1)})
+
+'''
 
 # MainSetup ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
