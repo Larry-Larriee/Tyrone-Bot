@@ -21,11 +21,14 @@ cluster = MongoClient(f"mongodb+srv://Tyrone:{mongoToken}@cluster0.abmnh.mongodb
 database = cluster["discord"]
 collection = database["messages"]
 
+# Sleep (wait command)
+import asyncio
+
 # Functions ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 @bot.event
 async def on_ready():
-  await bot.change_presence(activity = discord.Activity(type = discord.ActivityType.watching, name = "your data LMAO"))
+  await bot.change_presence(activity = discord.Activity(type = discord.ActivityType.watching, name = "CocoMelon"))
   print(f" {bot.user} is Working")
 
 @bot.event
@@ -34,8 +37,10 @@ async def on_message(message):
   if message.author == bot.user:
     return
 
-  elif message.content.lower() == "working":
-    await message.channel.send("I finally work")
+  elif message.content.lower() == "help me tyrone":
+    await message.channel.send(f"I'm a work in progress <@{message.author.id}>")
+    await asyncio.sleep(1)
+    await message.channel.send("Documentation: https://github.com/Larrieeee/Tyrone-Bot/blob/Main-Page/README.md")
 
   else:
 
@@ -57,7 +62,7 @@ output = collection.find({"test": "dab"})
 
 for result in output:
   print(result["_id"])
-  
+
 '''
 
 #countTotal = collection.count_documents({"test": "dab"})
@@ -71,8 +76,10 @@ for result in output:
 # Mass Purge Data
 '''
 
-for i in range(0,42):
-  target = collection.delete_one({"_id": (i+1)})
+purgeCount = collection.count_documents({})
+
+for i in range(0,purgeCount):
+  target = collection.delete_one({"_id": (i)})
 
 '''
 
