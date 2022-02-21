@@ -2,7 +2,7 @@
 
 **Context (Why Does This Exist):**
 
-Tyrone Bot is powered by the discord.py library as well as https://uptimerobot.com/ and contains commands designed for the memers and trolls. Some commands include but are not limited to: ____
+Tyrone Bot (Tyrone 2.0) is powered by the discord.py library as well as https://uptimerobot.com/ and contains commands designed for the memers and trolls. Some commands include but are not limited to: ____
 
 **Bot Mechanics:**
 
