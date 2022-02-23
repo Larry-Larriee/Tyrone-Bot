@@ -42,6 +42,14 @@ async def on_message(message):
     await asyncio.sleep(1)
     await message.channel.send("Documentation: https://github.com/Larrieeee/Tyrone-Bot/blob/Main-Page/README.md")
 
+  elif message.content.lower() == "nerd":
+    for i in range(69420):
+      
+      nerd = await message.channel.send(f"**{i + 1} Nerd** 🤓🤓🤓🤓🤓🤓🤓")
+      await nerd.add_reaction("🤓")
+      
+      await asyncio.sleep(0.75)
+
   else:
 
     messageId = collection.count_documents({})
