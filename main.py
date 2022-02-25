@@ -50,8 +50,6 @@ async def on_message(message):
       
       await asyncio.sleep(0.75)
 
-  else:
-
     messageId = collection.count_documents({})
     post = {"_id": messageId + 1,"Discord Server": message.author.guild.name, "Channel": message.channel.name, "Discord Author": message.author.name, "Message Sent": message.content}
 
