@@ -7,10 +7,11 @@ load_dotenv()
 
 # Grab the discord library & keep the bot on
 import discord
+from discord.ext import commands
 discordToken = os.getenv("discordToken")
 
 from KeepAlive import keep_alive
-bot = discord.Client()
+ext = commands.Bot(command_prefix = "dude ")
 
 # Datastore for discord messages :O
 import pymongo
@@ -26,10 +27,13 @@ import asyncio
 
 # Functions ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-@bot.event
+@ext.event
 async def on_ready():
-  await bot.change_presence(activity = discord.Activity(type = discord.ActivityType.watching, name = "CocoMelon"))
-  print(f" {bot.user} is Working")
+  await ext.change_presence(activity = discord.Activity(type = discord.ActivityType.watching, name = "CocoMelon"))
+  print(f" {ext.user} is Working")
+
+'''
+bot = discord.Client()
 
 @bot.event
 async def on_message(message):
@@ -57,6 +61,28 @@ async def on_message(message):
 
     # Stores all messages across all servers the bot is in
     collection.insert_one(post)
+'''
+
+@ext.command(name = "join")
+async def join_channel(context):
+
+  if (context.author.voice):
+    channel = context.author.voice.channel
+
+    await channel.connect()
+
+  else:
+    await context.reply("Not in channel???")
+
+@ext.command(name = "leave")
+async def leave_channel(context):
+
+  # If the bot is in a channel
+  if (context.voice_client):
+    await context.guild.voice_client.disconnect()
+
+  else:
+    await context.reply("I'm not even in a channel???")
 
 # INSERTING DATA ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -94,4 +120,4 @@ for i in range(0,purgeCount):
 # MainSetup ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 keep_alive()
-bot.run(discordToken)
+ext.run(discordToken)
