@@ -44,9 +44,11 @@ async def what_are_commands(context):
 
 @bot.event
 async def on_command_error(context, error):
-  await context.send(f"{error} **(Invalid Syntax)**")
+  await context.send(f"{error}")
 
+# PlayAudio ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+# Voice channel join command for the bot to join a voice channel and play an audio file
 @bot.command(name = "join")
 async def join_channel(context):
 
@@ -54,13 +56,14 @@ async def join_channel(context):
     channel = context.author.voice.channel
 
     voice = await channel.connect()
-    source = FFmpegPCMAudio("clashAudio.mp3")
+    source = FFmpegPCMAudio("audioPackages/clashAudio.mp3")
 
     voice.play(source)
 
   else:
     await context.reply("Not in channel???")
 
+# Forces the bot to leave the current channel that is is inside 
 @bot.command(name = "leave")
 async def leave_channel(context):
 
@@ -70,6 +73,19 @@ async def leave_channel(context):
 
   else:
     await context.reply("I'm not even in a channel???")
+
+# States for the bot to pause the audio file that it is currently playing
+@bot.command(name = "pause")
+async def pause_audio(context):
+
+  # Call discord ultilities & current voice channel/song
+  voice = discord.utils.get(bot.voice_clients, guild = context.guild)
+
+  if voice.is_playing():
+    voice.pause()
+
+  else:
+    await context.reply("Not playing a song??")
 
 # MainSetup ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
