@@ -6,8 +6,8 @@ import os
 load_dotenv()
 
 # Grab the discord library & keep the bot on
-import discord
 from discord.ext import commands
+from discord import FFmpegPCMAudio
 discordToken = os.getenv("discordToken")
 
 from KeepAlive import keep_alive
@@ -69,7 +69,9 @@ async def join_channel(context):
   if (context.author.voice):
     channel = context.author.voice.channel
 
-    await channel.connect()
+    voice = await channel.connect()
+    source = FFmpegPCMAudio()
+
 
   else:
     await context.reply("Not in channel???")
