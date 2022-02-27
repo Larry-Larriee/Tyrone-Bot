@@ -70,8 +70,9 @@ async def join_channel(context):
     channel = context.author.voice.channel
 
     voice = await channel.connect()
-    source = FFmpegPCMAudio()
+    source = FFmpegPCMAudio("clashAudio.mp3")
 
+    voice.play(source)
 
   else:
     await context.reply("Not in channel???")
