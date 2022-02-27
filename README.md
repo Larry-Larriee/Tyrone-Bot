@@ -9,7 +9,7 @@ Tyrone Bot (Tyrone 2.0) is powered by the discord.py library as well as https://
 - Work in progress
 - Tyrone is being revamped and rewritten becuase his old code was damn ugly
 
-**Note: It is worth noting that like bascially everything nowadays, it records your message data across all the servers you invite it into.**
+**Note: It has recently occured to me that discord.py will be depricated by April of 2022. As of 2/27/2022, I am rewriting Tyrone Bot to adapt to nextcord, another python library for discord** 
 
 *Produced By: Tyrone#1455*
 
