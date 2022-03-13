@@ -1,2 +1,2 @@
 git+https://github.com/nextcord/nextcord
-DateTime = 4.4
+DateTime == 4.4
