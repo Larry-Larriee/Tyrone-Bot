@@ -17,7 +17,7 @@ from nextcord import Interaction, interactions
 @bot.event
 async def on_ready():
   timeCurrently = datetime.datetime.now().strftime("%x")
-  await bot.change_presence(activity = nextcord.Activity(type = nextcord.ActivityType.listening, name = f"Since {timeCurrently}"))  
+  await bot.change_presence(activity = nextcord.Game(name = f"Since {timeCurrently}")) 
 
 # Test command using the command prefix
 @bot.command(name = "test", description = "Test if the bot is working")
