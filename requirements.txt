@@ -1,2 +1,3 @@
 git+https://github.com/nextcord/nextcord
 DateTime == 4.4
+asyncio == 3.4.3

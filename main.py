@@ -1,24 +1,30 @@
 # Variables ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-import datetime
-from distutils.util import change_root
-import os
-from unicodedata import name
-discordToken = os.getenv("TOKEN")
-
 import nextcord
+from nextcord import Interaction
 from nextcord.ext import commands
 
+from datetime import datetime
+from math import round
+
+import os, asyncio
+discordToken = os.getenv("TOKEN")
 bot = commands.Bot(command_prefix = "uh ")
-from nextcord import Interaction, interactions
 
 # Functions ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Display the date since the bot was last updated
 @bot.event
 async def on_ready():
-  timeCurrently = datetime.datetime.now().strftime("%x")
-  await bot.change_presence(activity = nextcord.Game(name = f"Since {timeCurrently}")) 
+    print(f"{bot.user} has turned itself on!")
+    startTime = datetime.timestamp(datetime.now())
+
+    while True:
+        await asyncio.sleep(5)
+        currentTime = datetime.timestamp(datetime.now())
+        elapsedTime = round((float(currentTime) - float(startTime)))
+
+        await bot.change_presence(activity = nextcord.Game(name = f"for {round((elapsedTime / 360), 2)} Hours"))
 
 # Test command using the command prefix
 @bot.command(name = "test", description = "Test if the bot is working")
