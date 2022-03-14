@@ -14,6 +14,7 @@ from nextcord import Interaction, interactions
 
 # Functions ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+# Display the date since the bot was last updated
 @bot.event
 async def on_ready():
   timeCurrently = datetime.datetime.now().strftime("%x")
