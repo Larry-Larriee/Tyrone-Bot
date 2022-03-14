@@ -5,8 +5,6 @@ from nextcord import Interaction
 from nextcord.ext import commands
 
 from datetime import datetime
-from math import round
-
 import os, asyncio
 discordToken = os.getenv("TOKEN")
 bot = commands.Bot(command_prefix = "uh ")
