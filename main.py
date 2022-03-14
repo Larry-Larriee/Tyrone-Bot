@@ -22,7 +22,7 @@ async def on_ready():
         currentTime = datetime.timestamp(datetime.now())
         elapsedTime = round((float(currentTime) - float(startTime)))
 
-        await bot.change_presence(activity = nextcord.Game(name = f"for {round((elapsedTime / 360), 2)} Hours"))
+        await bot.change_presence(activity = nextcord.Game(name = f"for {round((elapsedTime / 3600), 2)} Hours"))
 
 # Test command using the command prefix
 @bot.command(name = "test", description = "Test if the bot is working")
