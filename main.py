@@ -37,5 +37,4 @@ async def set_timer(context, timer, minutes = 0, hours = 0, days = 0):
 # MainSetup ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ 
 
 # This token is found on Heroku's configure var section
-#bot.run(os.getenv("TOKEN"))
-bot.run("ODg2MTE0ODQxOTY4OTE0NDQ1.YTw4wQ.Vv1V6yjgdMyIanrRX8niCgCnUgI")
+bot.run(os.getenv("TOKEN"))
