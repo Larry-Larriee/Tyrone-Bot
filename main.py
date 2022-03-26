@@ -23,7 +23,7 @@ async def set_timer(context, timer, minutes = 0, hours = 0, days = 0):
     print(f"starting at {currentTime}")
 
     futureTime = currentTime + timedelta(minutes = minutes, hours = hours, days = days)
-    await context.send(f"Alright. I have a timer set for **{futureTime}.**")
+    await context.send(f"Alright. I have a timer set for **{futureTime} in UTC**")
 
     while (currentTime < futureTime) == True:
       await asyncio.sleep(30)
