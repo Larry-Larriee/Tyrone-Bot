@@ -5,13 +5,13 @@ from nextcord import interactions
 from nextcord.ext import commands
 
 import os
-bot = commands.Bot(command_prefix = "hey ")
+bot = commands.Bot(command_prefix = "daddy ")
 
 # Functions ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ 
 
-@bot.command(name = "working?")
+@bot.command(name = "say")
 async def test_working(context, *arg):
-  context.reply(f"uh {arg}")
+  await context.reply(f"uh {' '.join(arg)}")
 
 
 # MainSetup ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ 
