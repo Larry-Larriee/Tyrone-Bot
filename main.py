@@ -36,13 +36,16 @@ async def set_timer(context, timer, minutes = 0, hours = 0, days = 0):
 
 @bot.command(name = "lyrics")
 async def get_lyrics(context, songName):
-  from songList import robloxSong
+  import songList
 
-  if songName == "roblox":
-    context.reply(" ".join(robloxSong))
+  if songName == "OMFG":
+    lyrics = songList.robloxSong()
+    await context.reply("https://www.youtube.com/watch?v=ih2xubMaZWI")
+    await context.send(f"```{lyrics}```")
 
 
 # MainSetup ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ 
 
 # This token is found on Heroku's configure var section
-bot.run(os.getenv("TOKEN"))
+#bot.run(os.getenv("TOKEN"))
+bot.run("ODg2MTE0ODQxOTY4OTE0NDQ1.YTw4wQ.2nauq9tbCV5tMyEy8M-dpHIWd_I")
