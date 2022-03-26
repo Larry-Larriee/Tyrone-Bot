@@ -5,7 +5,7 @@ from nextcord import interactions
 from nextcord.ext import commands
 
 import os
-bot = commands.bot(command_prefix = "hey ")
+bot = commands.Bot(command_prefix = "hey ")
 
 # Functions ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ 
 
