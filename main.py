@@ -36,10 +36,12 @@ async def set_timer(context, timer, minutes = 0, hours = 0, days = 0):
 
 @bot.command(name = "lyrics")
 async def get_lyrics(context, songName):
-  from songList import robloxSong
+  import songList
 
-  if songName == "roblox":
-    context.reply(" ".join(robloxSong))
+  if songName == "OMFG":
+    lyrics = songList.robloxSong()
+    await context.reply("https://www.youtube.com/watch?v=ih2xubMaZWI")
+    await context.send(f"```{lyrics}```")
 
 
 # MainSetup ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ 
