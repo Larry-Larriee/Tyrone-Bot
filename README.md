@@ -2,7 +2,7 @@
 
 **Context (Why Does This Exist):**
 
-Tyrone Bot (Tyrone 2.0) is powered by the discord.py library as well as https://uptimerobot.com/. It features voice support for trolling your fellow mates. Easy to follow. I suggest you this as a template for your own code on IDEs like Visual Studio.
+i need to update this dont look at the readme 
 
 **Bot Mechanics: (Prefix = "dude")**
 
