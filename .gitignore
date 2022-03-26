@@ -1,0 +1,5 @@
+# Files that git will ignore 
+
+.env
+Text_Files
+__pycache__
