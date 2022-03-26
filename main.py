@@ -47,4 +47,4 @@ async def get_lyrics(context, songName):
 # MainSetup ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ 
 
 # This token is found on Heroku's configure var section
-#bot.run(os.getenv("TOKEN"))
+bot.run(os.getenv("TOKEN"))
