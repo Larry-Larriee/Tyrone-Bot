@@ -34,6 +34,14 @@ async def set_timer(context, timer, minutes = 0, hours = 0, days = 0):
   authorUser = context.message.author.id
   await context.send(f"This is your reminder to do something <@{authorUser}>!!")
 
+@bot.command(name = "lyrics")
+async def get_lyrics(context, songName):
+  from songList import robloxSong
+
+  if songName == "roblox":
+    context.reply(" ".join(robloxSong))
+
+
 # MainSetup ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ 
 
 # This token is found on Heroku's configure var section
