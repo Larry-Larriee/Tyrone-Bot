@@ -12,7 +12,7 @@ bot = commands.Bot(command_prefix = "hey ")
 
 # Functions ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ 
 
-# Next Goals: Add a confirm time option, anti-break system, a more specific time like 7:00 PM
+# Next Goals: Add a confirm time option, anti-break system, a more specific time like 7:00 PM in LocalTime
 @bot.command(name = "set")
 async def set_timer(context, timer, minutes = 0, hours = 0, days = 0):
   
