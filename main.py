@@ -44,6 +44,7 @@ async def generate_profile(context, *arg):
   
   profileEmbed = nextcord.Embed(title = f"The Legendary Profile of {context.author}", description = f"About Me:\nShould follow MenofMERITS..", url = "https://www.instagram.com/jacobsmerits/"
   , color = 0xff0000, timestamp = datetime.now())
+  profileEmbed.set_thumbnail(url = "https://cdn.discordapp.com/attachments/952427411671244870/957732112881049650/discordIcon.jpg")
 
   # Send the embed 
   await context.send(embed = profileEmbed)
@@ -51,4 +52,4 @@ async def generate_profile(context, *arg):
 # MainSetup ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ 
 
 # This token is found on Heroku's configure var section
-#bot.run(os.getenv("TOKEN"))
+bot.run(os.getenv("TOKEN"))
