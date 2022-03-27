@@ -3,6 +3,7 @@
 **Context (Why Does This Exist):**
 
 Tyrone Bot (Tyrone 2.0) is your best friend! Totally...very cool...and has a bunch of wack features that YOU the user can use and abuse!
+i need to update this dont look at the readme 
 
 **Bot Mechanics: (Prefix = "hey")**
 

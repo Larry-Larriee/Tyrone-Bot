@@ -38,7 +38,7 @@ async def set_timer(context, timer, minutes = 0, hours = 0, days = 0):
 async def get_lyrics(context, songName):
   import songList
 
-  if songName == "OMFG":
+  if songName == "omfg".lower():
     lyrics = songList.robloxSong()
     await context.reply("https://www.youtube.com/watch?v=ih2xubMaZWI")
     await context.send(f"```{lyrics}```")
