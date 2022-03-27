@@ -2,13 +2,12 @@
 
 **Context (Why Does This Exist):**
 
-Tyrone Bot (Tyrone 2.0) is powered by the discord.py library as well as https://uptimerobot.com/. It features voice support for trolling your fellow mates. Easy to follow. I suggest you this as a template for your own code on IDEs like Visual Studio.
+Tyrone Bot (Tyrone 2.0) is your best friend! Totally...very cool...and has a bunch of wack features that YOU the user can use and abuse!
 
-**Bot Mechanics: (Prefix = "dude")**
+**Bot Mechanics: (Prefix = "hey")**
 
-- Join: Joins the voice channel that the user is in & plays a really loud clash royale sound
-- Leave: Leaves the voice channel that it is currently in 
-- Pause: Stops the really loud clash royale sound it is currently playing
+- set time {minutes} {hours} {days}: A timer to remind you that you have something important to do (UTC time)
+- lyrics {songName}: Doesn't have every song known to man yet. I'm still working on this..
 
 *Produced By: Tyrone#1455*
 
