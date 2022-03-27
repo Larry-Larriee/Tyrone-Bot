@@ -12,6 +12,11 @@ bot = commands.Bot(command_prefix = "hey ")
 
 # Functions ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ 
 
+@bot.event
+async def on_ready():
+  print(f"{bot.user} has turned on!")
+  await bot.change_presence(activity = nextcord.Game("Hello World!"))
+
 # Next Goals: Add a confirm time option, anti-break system, a more specific time like 7:00 PM in LocalTime
 @bot.command(name = "set")
 async def set_timer(context, timer, minutes = 0, hours = 0, days = 0):
@@ -34,15 +39,15 @@ async def set_timer(context, timer, minutes = 0, hours = 0, days = 0):
   authorUser = context.message.author.id
   await context.send(f"This is your reminder to do something <@{authorUser}>!!")
 
-@bot.command(name = "lyrics")
-async def get_lyrics(context, songName):
-  import songList
+@bot.command(name = "assembly")
+async def generate_profile(context, *arg):
+  
+  profileEmbed = nextcord.Embed(title = f"The Legendary Profile of {context.author}", description = f"About Me:\nShould follow MenofMERITS..", url = "https://www.instagram.com/jacobsmerits/"
+  , color = 0xff0000, timestamp = datetime.now())
+  profileEmbed.set_thumbnail(url = "https://cdn.discordapp.com/attachments/952427411671244870/957732112881049650/discordIcon.jpg")
 
-  if songName == "omfg".lower():
-    lyrics = songList.robloxSong()
-    await context.reply("https://www.youtube.com/watch?v=ih2xubMaZWI")
-    await context.send(f"```{lyrics}```")
-
+  # Send the embed 
+  await context.send(embed = profileEmbed)
 
 # MainSetup ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ 
 
